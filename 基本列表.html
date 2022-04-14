@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <h2>人员列表</h2>
+        <ul>
+            <!-- :key为索引，写成:key="p.id"更好 -->
+            <li v-for="p in persons" :key="p.id">{{p.name}}-{{p.age}}</li>
+
+            <!-- in也可以写成of -->
+            <!-- <li v-for="(p,index) in persons" :key="index">{{p.name}}-{{p.age}}</li> -->
+        </ul>
+        <h2>汽车信息</h2>
+        <ul>
+            <!-- k为属性，value为属性值 -->
+            <li v-for="(value,k) in car" ::key="k">{{k}}-{{value}}</li>
+        </ul>
+    </div>
+    <script>
+        const vm =new Vue({
+            el:'#root',
+            data:{
+                persons:[{
+                    id:'001',
+                    name:'张三',
+                    age:18
+                },{
+                    id:'002',
+                    name:'李四',
+                    age:19
+                },{
+                    id:'003',
+                    name:'王五',
+                    age:20
+                }],
+                car:{
+                name:'宝马',
+                price:'70万',
+                color:'白色'
+            }
+            },
+            
+        })
+    </script>
+</body>
+</html>
