@@ -4,13 +4,13 @@
     <el-tab-pane label="精选" name="first">精选
       <MyJingxuan_1/>
       <MyJingxuan_2 class="second"/>
-      <myJingxuan3 class="float"/>
-      <myJingxuan3 class="float middle"/>
-      <myJingxuan3 class="float"/>
+      <myJingxuan3 class="float" title="热播榜" :songsId="hotId"/>
+      <myJingxuan3 class="float middle" title="新曲榜" :songsId="newId"/>
+      <myJingxuan3 class="float" title="人气榜" :songsId="listenId"/>
       <!-- <img src="../assets/首页.png" alt="" width="800px"> -->
     </el-tab-pane>
-    <el-tab-pane label="榜单" name="second">榜单
-      <img src="../assets/首页.png" alt="" width="800px">
+    <el-tab-pane label="榜单" name="second">
+      <bangDan/>
     </el-tab-pane>
     <el-tab-pane label="纯音乐" name="third">纯音乐
       <img src="../assets/首页.png" alt="" width="800px">
@@ -35,14 +35,18 @@
 import MyJingxuan_1 from '../First/MyJingxuan_1'
 import MyJingxuan_2 from '../First/MyJingxuan_2.vue'
 import MyJingxuan3 from '../First/MyJingxuan_3.vue'
+import bangDan from '../First/bangdan/bangDan'
 export default {
     name:'myFirst',
     components:{
-      MyJingxuan_1,MyJingxuan_2,MyJingxuan3
+      MyJingxuan_1,MyJingxuan_2,MyJingxuan3,bangDan,
     },
     data() {
       return {
-        activeName: 'first'
+        activeName: 'first',
+        hotId:'5001',
+        newId:'1',
+        listenId:'9001'
       };
     },
     methods: {

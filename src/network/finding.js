@@ -3,9 +3,11 @@ import {request} from './request'
 
 export function getBannerData() { 
     return request({
-        url: "/search/hot/detail",
+        url: "/playlist/track/all",
         params: {
-             limit: 10
+            id:5001,
+            limit: 10,
+            offset:0
         }
     })
 }

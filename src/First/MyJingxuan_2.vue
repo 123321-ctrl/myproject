@@ -22,7 +22,7 @@ export default {
   methods: {
     getPlaylistHot() {
       getPlaylistHot().then((res) => {
-        console.log(res);
+        // console.log(res);
         this.list = res.tags
       });
     },

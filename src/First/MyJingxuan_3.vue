@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="box"><span class="hot">热歌榜</span> <span class="play">播放榜单</span></div>
+    <div class="box"><span class="hot">{{title}}</span> <span class="play">播放榜单</span></div>{{songsId}}
     <ul>
-      <li v-for="(item,index) in data" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.searchWord}}</a><img src="#" alt="" /></li>
+      <li v-for="(item,index) in data" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
     </ul>
   </div>
 </template>
@@ -11,9 +11,10 @@
 import {getBannerData} from '../network/finding'
 export default {
   name: "MyJingxuan3",
+  props:['title','songsId'],
   data(){
     return{
-      data:[]
+      data:[],
     }
   },
   created(){
@@ -22,8 +23,8 @@ export default {
   methods:{
       getBannerData(){
         getBannerData().then(res =>{
-          // console.log(res);
-          this.data = res.data
+          console.log(res);
+          this.data = res.songs
         })
       }
   }
