@@ -4,9 +4,9 @@
     <el-tab-pane label="精选" name="first">精选
       <MyJingxuan_1/>
       <MyJingxuan_2 class="second"/>
-      <myJingxuan3 class="float" title="热播榜" :songsId="hotId"/>
-      <myJingxuan3 class="float middle" title="新曲榜" :songsId="newId"/>
-      <myJingxuan3 class="float" title="人气榜" :songsId="listenId"/>
+      <myJingxuan3 class="float" title="热播榜" />
+      <myJingxuan3 class="float middle" title="新曲榜" />
+      <myJingxuan3 class="float" title="人气榜" />
       <!-- <img src="../assets/首页.png" alt="" width="800px"> -->
     </el-tab-pane>
     <el-tab-pane label="榜单" name="second">
@@ -44,9 +44,7 @@ export default {
     data() {
       return {
         activeName: 'first',
-        hotId:'5001',
-        newId:'1',
-        listenId:'9001'
+        
       };
     },
     methods: {

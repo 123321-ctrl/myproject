@@ -1,11 +1,41 @@
 //导入我们requset文件中封装好的request函数
 import {request} from './request'
 
-export function getBannerData() { 
+export function denglu() { 
+    return request({
+        url: "/login/cellphone",
+        params: {
+            phone:1,
+            password: '',
+        }
+    })
+}
+
+export function getHotData() { 
     return request({
         url: "/playlist/track/all",
         params: {
             id:5001,
+            limit: 10,
+            offset:0
+        }
+    })
+}
+export function getNewData() { 
+    return request({
+        url: "/playlist/track/all",
+        params: {
+            id:2004,
+            limit: 10,
+            offset:0
+        }
+    })
+}
+export function getListenData() { 
+    return request({
+        url: "/playlist/track/all",
+        params: {
+            id:5002,
             limit: 10,
             offset:0
         }

@@ -1,30 +1,58 @@
 <template>
-  <div>
-    <div class="box"><span class="hot">{{title}}</span> <span class="play">播放榜单</span></div>{{songsId}}
-    <ul>
-      <li v-for="(item,index) in data" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
+  <div >
+    <div class="box"><span class="hot">{{title}}</span> <span class="play">播放榜单</span></div>
+    <ul v-if="title === '热播榜'">
+      <li v-for="(item,index) in hotData" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
+    </ul>
+    <ul v-if="title === '新曲榜'">
+      <li v-for="(item,index) in newData" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
+    </ul>
+    <ul v-if="title === '人气榜'">
+      <li v-for="(item,index) in listenData" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
     </ul>
   </div>
 </template>
 
 <script>
-import {getBannerData} from '../network/finding'
+import {denglu,getHotData,getNewData,getListenData,} from '../network/finding'
+// getHotData,getNewData,getListenData,
 export default {
   name: "MyJingxuan3",
-  props:['title','songsId'],
+  props:['title'],
   data(){
     return{
-      data:[],
+      hotData:[],
+      newData:[],
+      listenData:[]
     }
   },
   created(){
-      this.getBannerData()
+      this.getHotData()
+      this.getNewData()
+      this.getListenData()
+      this.denglu()
   },
   methods:{
-      getBannerData(){
-        getBannerData().then(res =>{
-          console.log(res);
-          this.data = res.songs
+      getHotData(){
+        getHotData().then(res =>{
+          // console.log("热播榜" + res);
+          this.hotData = res.songs
+        })
+      },
+      getNewData(){
+        getNewData().then(res =>{
+          this.newData = res.songs
+        })
+      },
+      getListenData(){
+        getListenData().then(res =>{
+          // console.log("人气" + res);
+          this.listenData = res.songs
+        })
+      },
+      denglu(){
+        denglu().then(res => {
+          console.log(res)
         })
       }
   }
