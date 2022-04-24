@@ -17,6 +17,9 @@ const routes = [{
     }, {
         path: '/new_music',
         component: () => import('../First/bangdan/new_music.vue')
+    },{
+        path: '/singer',
+        component: () => import('../First/fenlei/mySinger.vue')
     }]
 }, {
     path: '/myRedio',

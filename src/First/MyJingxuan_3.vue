@@ -1,20 +1,14 @@
 <template>
   <div >
     <div class="box"><span class="hot">{{title}}</span> <span class="play">播放榜单</span></div>
-    <ul v-if="title === '热播榜'">
+    <ul>
       <li v-for="(item,index) in hotData" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
-    </ul>
-    <ul v-if="title === '新曲榜'">
-      <li v-for="(item,index) in newData" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
-    </ul>
-    <ul v-if="title === '人气榜'">
-      <li v-for="(item,index) in listenData" :key="index"><span>{{index + 1}}</span> <a href="#">{{item.name}}</a><img src="#" alt="" /></li>
     </ul>
   </div>
 </template>
 
 <script>
-import {denglu,getHotData,getNewData,getListenData,} from '../network/finding'
+import {getHotData} from '../network/finding'
 // getHotData,getNewData,getListenData,
 export default {
   name: "MyJingxuan3",
@@ -22,39 +16,30 @@ export default {
   data(){
     return{
       hotData:[],
-      newData:[],
-      listenData:[]
     }
   },
   created(){
       this.getHotData()
-      this.getNewData()
-      this.getListenData()
-      this.denglu()
   },
   methods:{
       getHotData(){
         getHotData().then(res =>{
-          // console.log("热播榜" + res);
+          console.log( res);
           this.hotData = res.songs
         })
       },
-      getNewData(){
-        getNewData().then(res =>{
-          this.newData = res.songs
-        })
-      },
-      getListenData(){
-        getListenData().then(res =>{
-          // console.log("人气" + res);
-          this.listenData = res.songs
-        })
-      },
-      denglu(){
-        denglu().then(res => {
-          console.log(res)
-        })
-      }
+      // getNewData(){
+      //   getNewData().then(res =>{
+      //     this.newData = res.songs
+      //   })
+      // },
+      // getListenData(){
+      //   getListenData().then(res =>{
+      //     console.log("人气" + res);
+      //     this.listenData = res.songs
+      //   })
+      // },
+      
   }
 };
 </script>

@@ -15,8 +15,8 @@
     <el-tab-pane label="纯音乐" name="third">纯音乐
       <img src="../assets/首页.png" alt="" width="800px">
     </el-tab-pane>
-    <el-tab-pane label="分类" name="fourth">分类
-      <img src="../assets/首页.png" alt="" width="800px">
+    <el-tab-pane label="分类" name="fourth">
+      <fenLei/>
     </el-tab-pane>
     <el-tab-pane label="专辑" name="fifth">专辑
       <img src="../assets/首页.png" alt="" width="800px">
@@ -36,10 +36,11 @@ import MyJingxuan_1 from '../First/MyJingxuan_1'
 import MyJingxuan_2 from '../First/MyJingxuan_2.vue'
 import MyJingxuan3 from '../First/MyJingxuan_3.vue'
 import bangDan from '../First/bangdan/bangDan'
+import fenLei from '../First/fenlei/fenLei'
 export default {
     name:'myFirst',
     components:{
-      MyJingxuan_1,MyJingxuan_2,MyJingxuan3,bangDan,
+      MyJingxuan_1,MyJingxuan_2,MyJingxuan3,bangDan,fenLei
     },
     data() {
       return {
