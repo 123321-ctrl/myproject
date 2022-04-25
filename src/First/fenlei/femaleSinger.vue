@@ -1,27 +1,27 @@
 <template>
   <div>
-      <p>男音乐人</p>
+    <p>女音乐人</p>
       <ul>
-          <li v-for="(item,index) in singers" :key="index"><a href="#">{{item.name}}</a> </li>
+          <li v-for="(item,index) in singers" :key="index"><a href="#">{{item.name}}</a></li>
       </ul>
   </div>
 </template>
 
 <script>
-import {getMSinger} from '../../network/finding'
+import {getFSinger} from '../../network/finding'
 export default {
-    name:'mySinger',
+    name:'femaleSinger',
     data(){
         return{
             singers:[]
         }
     },
     created(){
-        this.getMSinger()
+        this.getFSinger()
     },
     methods:{
-        getMSinger(){
-            getMSinger().then(res => {
+        getFSinger(){
+            getFSinger().then(res => {
                 console.log(res)
                 this.singers = res.artists
             })

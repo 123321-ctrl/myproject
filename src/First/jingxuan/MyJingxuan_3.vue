@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {getHotData} from '../network/finding'
+import {getHotData} from '../../network/finding'
 // getHotData,getNewData,getListenData,
 export default {
   name: "MyJingxuan3",

@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import MyJingxuan_3 from '../MyJingxuan_3.vue'
+import MyJingxuan_3 from '../jingxuan/MyJingxuan_3.vue'
 export default {
   name:'myAll',
   components:{MyJingxuan_3}

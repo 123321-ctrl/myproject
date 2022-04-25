@@ -1,43 +1,49 @@
 <template>
   <div>
-      <div class="left">
-          <ul>
-              <li><a href="#">全部分类</a></li>
-              <li><router-link to="/singer"></router-link> <a href="#">音乐人</a></li>
-              <li><a href="#">乐器</a></li>
-          </ul>
-      </div>
-      <div class="right">
+    <div class="left">
+      <ul>
+        <li><router-link to="/fenlei/myall">全部分类</router-link></li>
+        <li>
+          <router-link to="/fenlei/singer">男歌手</router-link>
+        </li>
+        <li><router-link to="/fenlei/femalesinger">女歌手</router-link></li>
+      </ul>
+    </div>
+    <div class="right">
+      <keep-alive :include="['mySinger','myAll','yueQi']">
         <router-view></router-view>
-      </div>
+      </keep-alive>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-    name:'feiLei'
-}
+  name: "feiLei",
+};
 </script>
 
 <style scoped>
-    *{
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
-    .left{
-        float: left;
-        width: 20%;
-    }
-    li{
-        list-style: none;
-    }
-    a{
-        text-decoration: none;
-    }
-    .right{
-        float: right;
-        width: 80%;
-        background-color: pink;
-    }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+.left {
+  float: left;
+  width: 15%;
+}
+li {
+  list-style: none;
+  margin: 10px 0 12px 0;
+}
+a {
+  color: black;
+  text-decoration: none;
+}
+.right {
+  float: right;
+  width: 85%;
+  /* background-color: pink; */
+}
 </style>

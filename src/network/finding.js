@@ -49,12 +49,21 @@ export function getPlaylistHot(){
         }
     })
 }
-export function getSinger(){
+export function getMSinger(){
     return request({
         url:'/artist/list',
         params:{
-            limit:20,
-            type:-1,
+            limit:50,
+            type:1,
+        }
+    })
+}
+export function getFSinger(){
+    return request({
+        url:'/artist/list',
+        params:{
+            limit:50,
+            type:2,
         }
     })
 }

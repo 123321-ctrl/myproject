@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { getPlaylistHot } from "../network/finding";
+import { getPlaylistHot } from "../../network/finding";
 export default {
   name: "MyJingxuan_2",
   data(){
