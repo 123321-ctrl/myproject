@@ -14,7 +14,8 @@
         </keep-alive>
       </el-tab-pane>
 
-      <el-tab-pane label="纯音乐" name="third">纯音乐
+      <el-tab-pane label="纯音乐" name="third"
+        >纯音乐
         <img src="../assets/首页.png" alt="" width="800px" />
         <router-view></router-view>
       </el-tab-pane>
@@ -25,10 +26,10 @@
         </keep-alive>
       </el-tab-pane>
 
-      <el-tab-pane label="专辑" name="fifth"
-        >专辑
-        <img src="../assets/首页.png" alt="" width="800px" />
-        <router-view></router-view>
+      <el-tab-pane label="专辑" name="fifth">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-tab-pane>
 
       <el-tab-pane label="FM" name="sixth"
@@ -65,35 +66,35 @@ export default {
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
-      if(tab.index == 0){
+      if (tab.index == 0) {
         this.$router.push({
-          path:'/jingxuan'
-        })
-      }else if(tab.index == 1){
+          path: "/jingxuan",
+        });
+      } else if (tab.index == 1) {
         this.$router.push({
-          path:'/bangdan'
-        })
-      }else if(tab.index == 2){
+          path: "/bangdan",
+        });
+      } else if (tab.index == 2) {
         this.$router.push({
-          path:'/chunyinyue'
-        })
-      }else if(tab.index == 3){
+          path: "/chunyinyue",
+        });
+      } else if (tab.index == 3) {
         this.$router.push({
-          path:'/fenlei'
-        })
-      }else if(tab.index == 4){
+          path: "/fenlei",
+        });
+      } else if (tab.index == 4) {
         this.$router.push({
-          path:'/zhuanji'
-        })
-      }else if(tab.index == 5){
+          path: "/zhuanji",
+        });
+      } else if (tab.index == 5) {
         this.$router.push({
-          path:'/FM'
-        })
-      }else if(tab.index == 6){
+          path: "/FM",
+        });
+      } else if (tab.index == 6) {
         this.$router.push({
-          path:'/shipin'
-        })
-      }    
+          path: "/shipin",
+        });
+      }
     },
   },
 };

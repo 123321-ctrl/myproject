@@ -1,0 +1,75 @@
+<template>
+  <div class="box">
+    <p class="title">华语专辑</p>
+    <ul>
+      <li v-for="(item,index) in data" :key="index">
+        <a href="#">
+          <img
+            :src="item.coverUrl"
+            alt=""
+            width="130px"
+            height="130px"
+          />
+        </a>
+        <p class="name">{{item.albumName}}</p>
+        <p style="fontSize:15px">{{item.artistName}}</p>
+      </li>
+    </ul>
+  </div>
+</template>
+
+<script>
+import {getCnzhuangji} from '../../network/finding'
+export default {
+  name: "cn_zhuanji",
+  data(){
+    return{
+      data:[]
+    }
+  },
+  // computed:{
+  //   picurl(){
+  //     return this.data.coverUrl
+  //   }
+  // },
+  created(){
+    this.getCnzhuangji()
+  },
+  methods:{
+    getCnzhuangji(){
+      getCnzhuangji().then(res =>{
+        console.log(res.albumProducts)
+        this.data = res.albumProducts
+      })
+    }
+  }
+};
+</script>
+
+<style scoped>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.title{
+    font-size: 25px;
+    margin: 10px 7px;
+}
+.box{
+  width: 100%;
+}
+li {
+  list-style: none;
+  display: inline-block;
+  width: 130px;
+  height: 180px;
+  margin: 20px 80px 0 0;
+}
+.name{
+  color: green;
+  width: 100%;
+  height: 20px;
+  overflow: hidden;
+}
+</style>

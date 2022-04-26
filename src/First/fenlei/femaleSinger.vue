@@ -22,7 +22,7 @@ export default {
     methods:{
         getFSinger(){
             getFSinger().then(res => {
-                console.log(res)
+                // console.log(res)
                 this.singers = res.artists
             })
         }

@@ -43,6 +43,22 @@ const routes = [{
     }, {
         path: 'zhuanji',
         component: () => import('../First/zhuanji/zhuanJi'),
+        children: [{
+            path: 'all',
+            component: () => import('../First/zhuanji/all_zhuanji')
+        }, {
+            path: 'cn',
+            component: () => import('../First/zhuanji/cn_zhuanji')
+        }, {
+            path: 'en',
+            component: () => import('../First/zhuanji/en_zhuanji')
+        }, {
+            path: 'kr',
+            component: () => import('../First/zhuanji/kr_zhuanji')
+        }, {
+            path: 'jp',
+            component: () => import('../First/zhuanji/jp_zhuanji')
+        }]
     }, {
         path: 'FM',
         component: () => import('../First/FM/fM'),

@@ -67,3 +67,12 @@ export function getFSinger(){
         }
     })
 }
+export function getCnzhuangji(){
+    return request({
+        url:'/album/list/style',
+        params:{
+            area:"Z_H",
+            offset:1,
+        }
+    })
+}
