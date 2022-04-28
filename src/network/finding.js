@@ -76,3 +76,12 @@ export function getCnzhuangji(){
         }
     })
 }
+export function getRedioId(){
+    return request({
+        url:'/personalized/djprogram',
+        // params:{
+        //     area:"Z_H",
+        //     offset:1,
+        // }
+    })
+}

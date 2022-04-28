@@ -4,6 +4,7 @@ Vue.use(Router)
 
 const routes = [{
     path: '/',
+    // redirect:"/jingxuan",
     component: () => import('./myFirst'),
     children: [{
         path: 'jingxuan',
@@ -68,7 +69,21 @@ const routes = [{
     }]
 }, {
     path: '/myRedio',
-    component: () => import('./myRedio')
+    component: () => import('./myRedio'),
+    // redirect:'/myRedio/jingxuan',
+    children:[{
+        path:'jingxuan',
+        component: () => import('../Redio/jingXuan'),
+    },{
+        path:'jiemu',
+        component: () => import('../Redio/jieMu'),
+    },{
+        path:'biaoqian',
+        component: () => import('../Redio/biaoQian'),
+    },{
+        path:'nj',
+        component: () => import('../Redio/myNj'),
+    },]
 }, {
     path: '/myHear',
     component: () => import('./myHear')
