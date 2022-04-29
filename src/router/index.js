@@ -4,7 +4,7 @@ Vue.use(Router)
 
 const routes = [{
     path: '/',
-    // redirect:"/jingxuan",
+    redirect:"/jingxuan",
     component: () => import('./myFirst'),
     children: [{
         path: 'jingxuan',
@@ -12,6 +12,7 @@ const routes = [{
     }, {
         path: 'bangdan',
         component: () => import('../First/bangdan/bangDan'),
+        redirect:'/bangdan/all',
         children: [{
             path: 'all',
             component: () => import('../First/bangdan/myAll.vue')
@@ -70,10 +71,10 @@ const routes = [{
 }, {
     path: '/myRedio',
     component: () => import('./myRedio'),
-    // redirect:'/myRedio/jingxuan',
+    redirect:'/myRedio/jingxuan',
     children:[{
         path:'jingxuan',
-        component: () => import('../Redio/jingXuan'),
+        component: () => import('../Redio/jingxuan/jingXuan'),
     },{
         path:'jiemu',
         component: () => import('../Redio/jieMu'),
@@ -93,26 +94,11 @@ const routes = [{
 }, {
     path: '/riZhi',
     component: () => import('./riZhi')
+},{
+    path:'/search',
+    component: () => import('../components/mySearch')
 }]
 export default new Router({
     routes
 })
 
-
-// {
-//     path: 'all',
-//     component: () => import('../First/bangdan/myAll.vue')
-// }, {
-//     path: 'like',
-//     component: () => import('../First/bangdan/myLike.vue')
-// }, {
-//     path: 'listen',
-//     component: () => import('../First/bangdan/myListen.vue')
-// }, {
-//     path: 'new_music',
-//     component: () => import('../First/bangdan/new_music.vue')
-// },{
-//     path: '/site/singer',
-//     component: () => import('../First/fenlei/mySinger.vue')
-// }]
-// // 

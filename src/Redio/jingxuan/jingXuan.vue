@@ -6,34 +6,33 @@
           <img :src="item.picUrl" alt="" width="100px" height="100px" />
         </a>
         <p class="name">{{ item.name }}</p>
-        <p class="copywriter">{{ item.rcmdtext }}</p>
+        <p class="copywriter">{{ item.copywriter }}</p>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import {getRedioId2} from '../network/finding'
+import { getRedioId } from "../../network/finding";
 export default {
-    name:'jieMu',
-    data() {
+  name: "jingXuan",
+  data() {
     return {
       data: [],
     };
   },
   created() {
-    this.getRedioId2();
+    this.getRedioId();
   },
   methods: {
-    getRedioId2() {
-      getRedioId2().then(res =>{
-        this.data = res.djRadios
+    getRedioId() {
+      getRedioId().then(res =>{
+        this.data = res.result
       })
     },
     
   },
-
-}
+};
 </script>
 
 <style scoped>

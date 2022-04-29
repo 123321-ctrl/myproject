@@ -12,7 +12,7 @@
       <li><router-link to="/riZhi">日志</router-link></li>
       <li><router-link to="/kehuDuan">客户端</router-link></li>
     </ul>
-    <input type="text" placeholder="搜索音乐、专辑、听友" />
+    <input type="text" placeholder="搜索音乐、专辑、听友" v-model="songValue" @keyup.enter="clickit"/>
   </div>
 </template>
 
@@ -20,6 +20,22 @@
 export default {
   name: "myTop",
   props: {},
+  data(){
+    return{
+      songValue:''
+    }
+  },
+  methods:{
+    clickit(){
+      console.log(this.songValue)
+      this.$router.push({
+        path:'/search',
+        query:{
+          val:this.songValue
+        }
+      })
+    }
+  }
 };
 </script>
 

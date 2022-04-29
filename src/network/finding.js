@@ -85,3 +85,11 @@ export function getRedioId(){
         // }
     })
 }
+export function getRedioId2(){
+    return request({
+        url:'/dj/hot',
+        params:{
+            limit:10
+        }
+    })
+}
