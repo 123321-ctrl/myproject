@@ -35,6 +35,15 @@ export default {
         }
       })
     }
+  },
+  mounted(){
+    this.$bus.$on('search',(data) =>{
+      console.log("hhhh" + data)
+      this.songValue = data
+    })
+  },
+  beforeDestroy(){
+    this.$bus.$off('search')
   }
 };
 </script>

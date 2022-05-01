@@ -1,13 +1,21 @@
 <template>
   <div>
     <div class="search">
-      <input type="text" name="" id="" :value="value"/>
-      <button>search</button>
+      <input type="text" name="" id="" v-model="value"/>
+      <button @click="chilcIt">search</button>
     </div>
 
     <div class="show">
       <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="单曲" name="first">
+          <ul class="songs">
+            <li v-for="(item, index) in data1" :key="index">
+              <a href="#" class="name">{{ item.name }}</a>
+              <a href="" class="actor">{{ item.artists[0].name }}</a>
+              <a href="" class="albums">{{item.album.name}}</a>
+              <span>{{item.duration}}</span>
+            </li>
+          </ul>
           <!-- <keep-alive>
             <router-view></router-view>
           </keep-alive> -->
@@ -52,23 +60,51 @@
         </el-tab-pane>
       </el-tabs>
     </div>
-    <p>{{$route.query.val}}</p>
   </div>
 </template>
 
 <script>
+import { getSearchValue } from "../network/finding";
 export default {
   name: "mySearch",
-//   data(){
-//       return{
-//           value:this.$route.query.val
-//       }
-//   },
-  computed:{
-      value(){
-          return this.$route.query.val
-      }
-  }
+  data() {
+    return {
+      activeName: 'first',
+      value:this.$route.query.val,
+      data1: [],
+    };
+  },
+  // watch:{
+  //   value(){
+  //     return this.value
+  //   }
+  // },
+  created() {
+    // setTimeout("refresh()",1000);
+    this.getSearchValue(this.value);
+  },
+  // computed: {
+  //   value() {
+  //     return this.$route.query.val;
+  //   },
+  // },
+  methods: {
+    handleClick(tab, event) {
+      console.log(tab, event);
+    },
+    // refresh(){
+    //   window.location.reload();
+    // },
+    getSearchValue(value) {
+      getSearchValue(value).then((res) => {
+        console.log(res.result.songs)
+        this.data1 = res.result.songs;
+      });
+    },
+    chilcIt(){
+      this.$bus.$emit('search',this.value)
+    }
+  },
 };
 </script>
 
@@ -90,5 +126,23 @@ input {
 button {
   width: 50px;
   height: 30px;
+}
+.songs li{
+  list-style: none;
+  padding: 10px 10px 8px 18px;
+}
+.songs a {
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+}
+.songs .name {
+  width: 335px;
+}
+.songs .actor {
+  width: 210px;
+}
+.songs .albums {
+  width: 236px;
 }
 </style>

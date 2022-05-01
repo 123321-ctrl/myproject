@@ -93,3 +93,11 @@ export function getRedioId2(){
         }
     })
 }
+export function getSearchValue(value){
+    return request({
+        url:'/search/suggest',
+        params:{
+            keywords: value
+        }
+    })
+}
