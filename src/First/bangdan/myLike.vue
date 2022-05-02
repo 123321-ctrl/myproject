@@ -8,20 +8,21 @@
 </template>
 
 <script>
-import {getListenData} from '../../network/finding'
+import {getHotData} from '../../network/finding'
 export default {
   name:'myLike',
   data(){
     return{
-      likeData:[]
+      likeData:[],
+      id:'10001'
     }
   },
   created(){
-    this.getListenData()
+    this.getHotData(this.id)
   },
   methods:{
-    getListenData(){
-      getListenData().then(res =>{
+    getHotData(id){
+      getHotData(id).then(res =>{
         // console.log(res)
         this.likeData = res.songs
       })

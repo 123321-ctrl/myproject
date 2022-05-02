@@ -34,7 +34,7 @@ export default {
           val:this.songValue
         }
       })
-    }
+    },
   },
   mounted(){
     this.$bus.$on('search',(data) =>{

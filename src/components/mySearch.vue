@@ -74,27 +74,15 @@ export default {
       data1: [],
     };
   },
-  // watch:{
-  //   value(){
-  //     return this.value
-  //   }
-  // },
-  created() {
-    // setTimeout("refresh()",1000);
+  created(){
     this.getSearchValue(this.value);
   },
-  // computed: {
-  //   value() {
-  //     return this.$route.query.val;
-  //   },
-  // },
+  
   methods: {
     handleClick(tab, event) {
       console.log(tab, event);
     },
-    // refresh(){
-    //   window.location.reload();
-    // },
+    
     getSearchValue(value) {
       getSearchValue(value).then((res) => {
         console.log(res.result.songs)

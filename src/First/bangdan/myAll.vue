@@ -1,8 +1,8 @@
 <template>
   <div>
     <p>排行榜</p>
-    <MyJingxuan_3 class="float left" />
-    <MyJingxuan_3 class="float" />
+    <MyJingxuan_3 class="float left" title="热播榜"  idNum="5001"/>
+    <MyJingxuan_3 class="float" title="人气榜" idNum="10001"/>
   </div>
 </template>
 

@@ -11,33 +11,13 @@ import {request} from './request'
 //     })
 // }
 
-export function getHotData() { 
+export function getHotData(id) { 
     return request({
         url: "/playlist/track/all",
         params: {
-            id:5001,
+            id:id,
             limit: 10,
             offset:1
-        }
-    })
-}
-export function getNewData() { 
-    return request({
-        url: "/playlist/track/all",
-        params: {
-            id:2008,
-            limit: 10,
-            offset:0
-        }
-    })
-}
-export function getListenData() { 
-    return request({
-        url: "/playlist/track/all",
-        params: {
-            id:10001,
-            limit: 10,
-            offset:0
         }
     })
 }
@@ -79,10 +59,6 @@ export function getCnzhuangji(){
 export function getRedioId(){
     return request({
         url:'/personalized/djprogram',
-        // params:{
-        //     area:"Z_H",
-        //     offset:1,
-        // }
     })
 }
 export function getRedioId2(){
@@ -98,6 +74,14 @@ export function getSearchValue(value){
         url:'/search/suggest',
         params:{
             keywords: value
+        }
+    })
+}
+export function getSongUrl(id){
+    return request({
+        url:'/song/url',
+        params:{
+            id: id
         }
     })
 }
