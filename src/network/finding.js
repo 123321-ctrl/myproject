@@ -29,33 +29,40 @@ export function getPlaylistHot(){
         }
     })
 }
-export function getMSinger(){
+//得到歌手名字
+export function getSinger(type){
     return request({
         url:'/artist/list',
         params:{
             limit:50,
-            type:1,
+            type:type,
         }
     })
 }
-export function getFSinger(){
+//得到歌手的所有歌曲  id为歌手的id
+export function getSingerSongs(id){
     return request({
-        url:'/artist/list',
+        url:'/artist/songs',
         params:{
-            limit:50,
-            type:2,
+            id:id,
+            order:"hot",
+            limit:50
         }
     })
 }
-export function getCnzhuangji(){
+
+//得到专辑
+export function getzhuangji(area){
     return request({
         url:'/album/list/style',
         params:{
-            area:"Z_H",
+            area:area,
             offset:1,
+            limit:12
         }
     })
 }
+//得到电台的ID
 export function getRedioId(){
     return request({
         url:'/personalized/djprogram',
@@ -69,6 +76,7 @@ export function getRedioId2(){
         }
     })
 }
+//得到搜索关键字
 export function getSearchValue(value){
     return request({
         url:'/search/suggest',
@@ -77,6 +85,7 @@ export function getSearchValue(value){
         }
     })
 }
+//得到歌曲的播放地址
 export function getSongUrl(id){
     return request({
         url:'/song/url',

@@ -8,20 +8,21 @@
 </template>
 
 <script>
-import {getFSinger} from '../../network/finding'
+import {getSinger} from '../../network/finding'
 export default {
     name:'femaleSinger',
     data(){
         return{
-            singers:[]
+            singers:[],
+            type:2
         }
     },
     created(){
-        this.getFSinger()
+        this.getSinger(this.type)
     },
     methods:{
-        getFSinger(){
-            getFSinger().then(res => {
+        getSinger(type){
+            getSinger(type).then(res => {
                 // console.log(res)
                 this.singers = res.artists
             })

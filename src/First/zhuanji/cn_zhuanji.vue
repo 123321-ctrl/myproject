@@ -12,19 +12,20 @@
           />
         </a>
         <p class="name">{{item.albumName}}</p>
-        <p style="fontSize:15px">{{item.artistName}}</p>
+        <p style="fontSize:15px" class="artistName">{{item.artistName}}</p>
       </li>
     </ul>
   </div>
 </template>
 
 <script>
-import {getCnzhuangji} from '../../network/finding'
+import {getzhuangji} from '../../network/finding'
 export default {
   name: "cn_zhuanji",
   data(){
     return{
-      data:[]
+      data:[],
+      area:'Z_H'
     }
   },
   // computed:{
@@ -33,11 +34,11 @@ export default {
   //   }
   // },
   created(){
-    this.getCnzhuangji()
+    this.getzhuangji(this.area)
   },
   methods:{
-    getCnzhuangji(){
-      getCnzhuangji().then(res =>{
+    getzhuangji(area){
+      getzhuangji(area).then(res =>{
         console.log(res.albumProducts)
         this.data = res.albumProducts
       })
@@ -68,6 +69,11 @@ li {
 }
 .name{
   color: green;
+  width: 100%;
+  height: 20px;
+  overflow: hidden;
+}
+.artistName{
   width: 100%;
   height: 20px;
   overflow: hidden;

@@ -1,55 +1,69 @@
 <template>
   <div>
-      <p>男音乐人</p>
-      <ul>
-          <li v-for="(item,index) in singers" :key="index"><a href="#">{{item.name}}</a> </li>
-      </ul>
+    <p>男音乐人</p>
+    <ul>
+      <li v-for="(item, index) in singers" :key="index">
+        <a href="#" @click="getSingerId(item.id)">{{ item.name }}</a>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
-import {getMSinger} from '../../network/finding'
+import { getSinger, getSingerSongs } from "../../network/finding";
 export default {
-    name:'mySinger',
-    data(){
-        return{
-            singers:[]
-        }
+  name: "mySinger",
+  data() {
+    return {
+      singers: [],
+      type: 1,
+    };
+  },
+  created() {
+    this.getSinger(this.type);
+  },
+  methods: {
+    getSinger(type) {
+      getSinger(type).then((res) => {
+        // console.log(res)
+        this.singers = res.artists;
+      });
     },
-    created(){
-        this.getMSinger()
+    getSingerId(id) {  //此id为歌手的id
+      getSingerSongs(id).then((res) => {
+        console.log(res.songs);  //得到此歌手的所有歌曲
+        this.$router.push({
+          path: "/singersongslist",
+          query: {
+            id: id,
+          },
+        });
+      });
     },
-    methods:{
-        getMSinger(){
-            getMSinger().then(res => {
-                console.log(res)
-                this.singers = res.artists
-            })
-        }
-    }
-}
+  },
+};
 </script>
 
 <style scoped>
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
-p{
-    font-size: 25px;
-    margin: 10px 7px;
+p {
+  font-size: 25px;
+  margin: 10px 7px;
 }
-li{
-    text-align: left;
-    color: green;
-    display: inline-block;
-    width: 143px;
-    margin: 10px;
-    list-style: none;
+li {
+  text-align: left;
+  color: green;
+  display: inline-block;
+  width: 143px;
+  margin: 10px;
+  list-style: none;
 }
-a{
-    text-decoration: none;
-    color: green;
+a {
+  text-decoration: none;
+  color: green;
 }
 </style>

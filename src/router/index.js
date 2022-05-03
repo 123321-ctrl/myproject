@@ -67,6 +67,9 @@ const routes = [{
     }, {
         path: 'shipin',
         component: () => import('../First/shipin/shiPIn'),
+    },{
+        path:'singersongslist',
+    component: () => import('../components/singerSongsList')
     }]
 }, {
     path: '/myRedio',
@@ -97,7 +100,8 @@ const routes = [{
 },{
     path:'/search',
     component: () => import('../components/mySearch')
-}]
+},
+]
 export default new Router({
     routes
 })
