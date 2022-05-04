@@ -62,6 +62,15 @@ export function getzhuangji(area){
         }
     })
 }
+//得到专辑详情
+export function getzhuangjiDetail(id){
+    return request({
+        url:'/album',
+        params:{
+            id:id
+        }
+    })
+}
 //得到电台的ID
 export function getRedioId(){
     return request({

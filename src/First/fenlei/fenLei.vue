@@ -2,7 +2,7 @@
   <div>
     <div class="left">
       <ul>
-        <li><router-link to="/fenlei/myall">全部分类</router-link></li>
+        <li><router-link to="/fenlei/myall">乐队</router-link></li>
         <li>
           <router-link to="/fenlei/singer">男歌手</router-link>
         </li>

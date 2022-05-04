@@ -4,7 +4,7 @@ Vue.use(Router)
 
 const routes = [{
     path: '/',
-    redirect:"/jingxuan",
+    redirect: "/jingxuan",
     component: () => import('./myFirst'),
     children: [{
         path: 'jingxuan',
@@ -12,7 +12,7 @@ const routes = [{
     }, {
         path: 'bangdan',
         component: () => import('../First/bangdan/bangDan'),
-        redirect:'/bangdan/all',
+        redirect: '/bangdan/all',
         children: [{
             path: 'all',
             component: () => import('../First/bangdan/myAll.vue')
@@ -32,6 +32,7 @@ const routes = [{
     }, {
         path: 'fenlei',
         component: () => import('../First/fenlei/fenLei'),
+        redirect: '/fenlei/myall',
         children: [{
             path: 'myall',
             component: () => import('../First/fenlei/myAll')
@@ -67,25 +68,28 @@ const routes = [{
     }, {
         path: 'shipin',
         component: () => import('../First/shipin/shiPIn'),
-    },{
-        path:'singersongslist',
-    component: () => import('../components/singerSongsList')
+    }, {
+        path: 'singersongslist',
+        component: () => import('../components/singerSongsList')
+    }, {
+        path: 'zhuanjidetail',
+        component: () => import('../components/zhuanjiDetail')
     }]
 }, {
     path: '/myRedio',
     component: () => import('./myRedio'),
-    redirect:'/myRedio/jingxuan',
-    children:[{
-        path:'jingxuan',
+    redirect: '/myRedio/jingxuan',
+    children: [{
+        path: 'jingxuan',
         component: () => import('../Redio/jingxuan/jingXuan'),
-    },{
-        path:'jiemu',
+    }, {
+        path: 'jiemu',
         component: () => import('../Redio/jieMu'),
-    },{
-        path:'biaoqian',
+    }, {
+        path: 'biaoqian',
         component: () => import('../Redio/biaoQian'),
-    },{
-        path:'nj',
+    }, {
+        path: 'nj',
         component: () => import('../Redio/myNj'),
     },]
 }, {
@@ -97,8 +101,8 @@ const routes = [{
 }, {
     path: '/riZhi',
     component: () => import('./riZhi')
-},{
-    path:'/search',
+}, {
+    path: '/search',
     component: () => import('../components/mySearch')
 },
 ]

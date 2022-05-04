@@ -66,4 +66,7 @@ a {
   text-decoration: none;
   color: green;
 }
+a:hover{
+  text-decoration: underline;
+}
 </style>

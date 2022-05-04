@@ -32,7 +32,7 @@ export default {
         getSongUrl(id).then(res =>{  //根据id获取url
           console.log(res.data[0].url)   //得到url
           if(res.data[0].url != null){
-            this.$bus.$emit('sendUrl',res.data[0].url,name)
+            this.$bus.$emit('sendUrl',res.data[0].url,name)  //该事件在playSong.vue上
           }
           else{
             alert("该歌曲找不到wwww")

@@ -20,7 +20,5 @@ export default {
 </script>
 
 <style scoped>
-#app{
-  background: gray;
-}
+
 </style>
