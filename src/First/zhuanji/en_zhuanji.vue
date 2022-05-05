@@ -3,7 +3,7 @@
     <p class="title">欧美专辑</p>
     <ul>
       <li v-for="(item,index) in data" :key="index">
-        <a href="#">
+        <a href="#" @click="toDetail(item.albumId)">
           <img
             :src="item.coverUrl"
             alt=""
@@ -11,8 +11,8 @@
             height="130px"
           />
         </a>
-        <p class="name">{{item.albumName}}</p>
-        <p style="fontSize:15px" class="artistName">{{item.artistName}}</p>
+        <p class="name"><a href="#" @click="toDetail(item.albumId)">{{item.albumName}}</a></p>
+        <p style="fontSize:15px" class="artistName"><a href="#">{{item.artistName}}</a></p>
       </li>
     </ul>
   </div>
@@ -36,6 +36,14 @@ export default {
       getzhuangji(area).then(res =>{
         console.log(res.albumProducts)
         this.data = res.albumProducts
+      })
+    },
+    toDetail(albumId){
+      this.$router.push({
+        path:'/zhuanjidetail',
+        query:{
+          albumId:albumId
+        }
       })
     }
   }
@@ -63,7 +71,6 @@ li {
   margin: 20px 80px 0 0;
 }
 .name{
-  color: green;
   width: 100%;
   height: 20px;
   overflow: hidden;
@@ -72,5 +79,11 @@ li {
   width: 100%;
   height: 20px;
   overflow: hidden;
+}
+a{
+  text-decoration: none;
+}
+.name a{
+  color: green;
 }
 </style>

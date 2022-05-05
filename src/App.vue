@@ -2,6 +2,7 @@
   <div id="app">
     <myTop/>
     <myContent/>
+    <footer class="footer"></footer>
     <playSong class="playsong"/>
   </div>
 </template>
@@ -19,6 +20,14 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style>
+#app{
+  background: gray;
+}
+.footer{
+  background: pink;
+  margin-top: 20px;
+  width: 101%;
+  height: 44px;
+}
 </style>

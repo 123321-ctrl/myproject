@@ -2,7 +2,6 @@
   <div>
     <div class="left">
       <ul>
-        <li><router-link to="/zhuanji/all"> 全部专辑</router-link></li>
         <li><router-link to="/zhuanji/cn"> 华语专辑</router-link></li>
         <li><router-link to="/zhuanji/en"> 欧美专辑</router-link></li>
         <li><router-link to="/zhuanji/kr"> 韩语专辑</router-link></li>
@@ -10,7 +9,7 @@
       </ul>
     </div>
     <div class="right">
-      <keep-alive :include="['all_zhuanji','cn_zhuanji','en_zhuanji','kr_zhuanji','jp_zhuanji']">
+      <keep-alive :include="['cn_zhuanji','en_zhuanji','kr_zhuanji','jp_zhuanji']">
       <router-view></router-view>
       </keep-alive>
     </div>

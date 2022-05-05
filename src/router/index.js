@@ -46,10 +46,8 @@ const routes = [{
     }, {
         path: 'zhuanji',
         component: () => import('../First/zhuanji/zhuanJi'),
+        redirect: '/zhuanji/cn',
         children: [{
-            path: 'all',
-            component: () => import('../First/zhuanji/all_zhuanji')
-        }, {
             path: 'cn',
             component: () => import('../First/zhuanji/cn_zhuanji')
         }, {
