@@ -5,9 +5,6 @@
       <li>
         <router-link to="/">首页</router-link>
       </li>
-      <li>
-        <router-link to="/myRedio">电台</router-link>
-      </li>
       <li><router-link to="/myHear">听说</router-link></li>
       <li><router-link to="/riZhi">日志</router-link></li>
       <li><router-link to="/kehuDuan">客户端</router-link></li>

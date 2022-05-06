@@ -6,7 +6,11 @@
           <img :src="item.picUrl" alt="" width="100px" height="100px" />
         </a>
         <p class="name">{{ item.name }}</p>
-        <p class="copywriter">{{ item.copywriter }}</p>
+        <p class="artist">
+          <a href="" @click="artistList(item.program.radio.id)">{{
+            item.program.mainSong.album.artist.name
+          }}</a>
+        </p>
       </li>
     </ul>
   </div>
@@ -26,17 +30,24 @@ export default {
   },
   methods: {
     getRedioId() {
-      getRedioId().then(res =>{
-        this.data = res.result
-      })
+      getRedioId().then((res) => {
+        this.data = res.result;
+      });
     },
-    
+    artistList(rid) {
+      this.$router.push({
+        path:'',
+        query:{
+          rid:rid
+        }
+      });
+    },
   },
 };
 </script>
 
 <style scoped>
-*{
+* {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -46,18 +57,19 @@ img {
   background-color: pink;
   margin-right: 5px;
 }
-li{
+li {
+  width: 695px;
   clear: both;
   list-style: none;
   margin-bottom: 30px;
   border-bottom: 2px solid white;
 }
 
-.name{
+.name {
   color: green;
   padding-top: 57px;
 }
-.copywriter{
+.artist {
   font-size: 15px;
 }
 </style>

@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import {getRedioId2} from '../network/finding'
+import {getRedioId2} from '../../network/finding'
 export default {
     name:'jieMu',
     data() {
@@ -48,6 +48,7 @@ img {
   margin-right: 5px;
 }
 li{
+  width: 695px;
   clear: both;
   list-style: none;
   margin-bottom: 30px;

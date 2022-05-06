@@ -71,7 +71,7 @@ export function getzhuangjiDetail(id){
         }
     })
 }
-//得到电台的ID
+//得到电台的ID   推荐电台接口
 export function getRedioId(){
     return request({
         url:'/personalized/djprogram',
@@ -82,6 +82,16 @@ export function getRedioId2(){
         url:'/dj/hot',
         params:{
             limit:10
+        }
+    })
+}
+//得到电台的歌曲列表  需登录
+export function getRedioIdSongs(rid){
+    return request({
+        url:'/dj/program',
+        params:{
+            rid:rid,
+            limit:40
         }
     })
 }

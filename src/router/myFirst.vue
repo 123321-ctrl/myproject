@@ -32,10 +32,10 @@
         </keep-alive>
       </el-tab-pane>
 
-      <el-tab-pane label="FM" name="sixth"
-        >分类
-        <img src="../assets/首页.png" alt="" width="800px" />
-        <router-view></router-view>
+      <el-tab-pane label="FM" name="sixth">
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-tab-pane>
 
       <el-tab-pane label="视频" name="seventh"
@@ -48,9 +48,6 @@
 </template>
 
 <script>
-// import jingXuan from "../First/jingxuan/jingXuan.vue";
-// import bangDan from "../First/bangdan/bangDan";
-// import fenLei from "../First/fenlei/fenLei";
 export default {
   name: "myFirst",
   components: {

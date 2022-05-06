@@ -63,6 +63,19 @@ const routes = [{
     }, {
         path: 'FM',
         component: () => import('../First/FM/fM'),
+        children:[{
+            path: 'jingxuan',
+            component: () => import('../First/FM/jingXuan'),
+        }, {
+            path: 'jiemu',
+            component: () => import('../First/FM/jieMu'),
+        }, {
+            path: 'biaoqian',
+            component: () => import('../First/FM/biaoQian'),
+        }, {
+            path: 'nj',
+            component: () => import('../First/FM/myNj'),
+        }]
     }, {
         path: 'shipin',
         component: () => import('../First/shipin/shiPIn'),
@@ -73,23 +86,6 @@ const routes = [{
         path: 'zhuanjidetail',
         component: () => import('../components/zhuanjiDetail')
     }]
-}, {
-    path: '/myRedio',
-    component: () => import('./myRedio'),
-    redirect: '/myRedio/jingxuan',
-    children: [{
-        path: 'jingxuan',
-        component: () => import('../Redio/jingxuan/jingXuan'),
-    }, {
-        path: 'jiemu',
-        component: () => import('../Redio/jieMu'),
-    }, {
-        path: 'biaoqian',
-        component: () => import('../Redio/biaoQian'),
-    }, {
-        path: 'nj',
-        component: () => import('../Redio/myNj'),
-    },]
 }, {
     path: '/myHear',
     component: () => import('./myHear')
