@@ -1,6 +1,6 @@
 <template>
   <div>
-      <img src="../assets/听说.png" alt="" width="800px">
+      liebiao
   </div>
 </template>
 

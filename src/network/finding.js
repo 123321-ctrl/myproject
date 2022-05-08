@@ -1,16 +1,24 @@
 //导入我们requset文件中封装好的request函数
 import {request} from './request'
 
-// export function denglu() { 
-//     return request({
-//         url: "/login/cellphone",
-//         params: {
-//             phone:1,
-//             password: '',
-//         }
-//     })
-// }
-
+export function denglu(phone,password) { 
+    return request({
+        url: "/login/cellphone",
+        params: {
+            phone:phone,
+            password: password,
+        }
+    })
+}
+//得到关注列表
+export function watchList(uid) { 
+    return request({
+        url: "/user/follows",
+        params: {
+            uid:uid,
+        }
+    })
+}
 export function getHotData(id) { 
     return request({
         url: "/playlist/track/all",

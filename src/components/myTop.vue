@@ -6,10 +6,17 @@
         <router-link to="/">首页</router-link>
       </li>
       <li><router-link to="/myHear">听说</router-link></li>
-      <li><router-link to="/riZhi">日志</router-link></li>
-      <li><router-link to="/kehuDuan">客户端</router-link></li>
+      <li><router-link to="/guanzhu">关注</router-link></li>
     </ul>
-    <input type="text" placeholder="搜索音乐、专辑、听友" v-model="songValue" @keyup.enter="clickit"/>
+    <input
+      type="text"
+      placeholder="搜索音乐、专辑、听友"
+      v-model="songValue"
+      @keyup.enter="clickit"
+    />
+    <span class="logout">
+      <a href="" @click="loginout" v-text="loginmsg"></a>
+    </span>
   </div>
 </template>
 
@@ -17,31 +24,57 @@
 export default {
   name: "myTop",
   props: {},
-  data(){
-    return{
-      songValue:''
-    }
+  data() {
+    return {
+      songValue: "",
+      loginmsg:''
+    };
   },
-  methods:{
-    clickit(){
-      console.log(this.songValue)
+  created() {
+    this.msg();
+
+  },
+  methods: {
+    msg() {
+      const msg = localStorage.getItem("token");
+      if (!msg) {
+        //为空时
+        this.loginmsg = "请登录";
+      } else {
+        this.loginmsg = "退出登录";
+      }
+    },
+    clickit() {
+      console.log(this.songValue);
       this.$router.push({
-        path:'/search',
-        query:{
-          val:this.songValue
-        }
-      })
+        path: "/search",
+        query: {
+          val: this.songValue,
+        },
+      });
+    },
+    loginout() {
+      if (this.loginmsg == "退出登录") {
+        alert("退出登录");
+        localStorage.setItem("token", "");
+        localStorage.setItem("uid", "");
+      }else if(this.loginmsg == "请登录"){
+        alert('登录')
+      }
     },
   },
-  mounted(){
-    this.$bus.$on('search',(data) =>{
-      console.log("hhhh" + data)
-      this.songValue = data
+  mounted() {
+    this.$bus.$on("search", (data) => {
+      console.log("hhhh" + data);
+      this.songValue = data;
+    });
+    this.$bus.$on('login',() =>{
+      this.loginmsg = "退出登录"
     })
   },
-  beforeDestroy(){
-    this.$bus.$off('search')
-  }
+  beforeDestroy() {
+    this.$bus.$off("search");
+  },
 };
 </script>
 
@@ -84,5 +117,10 @@ input {
   width: 357px;
   height: 46px;
   border-radius: 5px;
+}
+.logout a {
+  position: absolute;
+  top: 42px;
+  right: 142px;
 }
 </style>
