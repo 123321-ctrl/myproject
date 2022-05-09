@@ -90,6 +90,10 @@ const router = new Router({
     }, {
         path: '/myHear',
         component: () => import('./myHear')
+    },
+    {
+        path: '/myhearlistdetail',
+        component: () => import('../components/myhearListDetail')
     }, {
         path: '/guanzhu',
         component: () => import('./guanZhu')

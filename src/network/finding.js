@@ -19,6 +19,25 @@ export function watchList(uid) {
         }
     })
 }
+//得到歌单列表
+export function hearList(uid) { 
+    return request({
+        url: "/user/playlist",
+        params: {
+            uid:uid,
+            limit:30
+        }
+    })
+}
+//获取歌单详情
+export function hearListDetail(id) { 
+    return request({
+        url: "/playlist/detail",
+        params: {
+            id:id,
+        }
+    })
+}
 export function getHotData(id) { 
     return request({
         url: "/playlist/track/all",
