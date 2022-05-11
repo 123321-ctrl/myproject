@@ -10,8 +10,10 @@
       </ul>
     </div>
     <div class="right">
-      <keep-alive :include="['mySinger','myAll','yueQi']">
-        <router-view></router-view>
+      <keep-alive :include="['mySinger', 'myAll', 'yueQi']">
+        <transition name="fade" mode="out-in">
+          <router-view> </router-view>
+        </transition>
       </keep-alive>
     </div>
   </div>
@@ -45,5 +47,13 @@ a {
   float: right;
   width: 85%;
   /* background-color: pink; */
+}
+.fade-enter-aactive,
+.fade-leave-active {
+  transition: opacity 0.5s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

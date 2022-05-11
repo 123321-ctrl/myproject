@@ -2,7 +2,7 @@
   <div id="app">
     <myTop/>
     <myContent/>
-    <footer class="footer"></footer>
+    <footer class="footer">底部</footer>
     <playSong class="playsong"/>
   </div>
 </template>

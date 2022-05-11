@@ -2,13 +2,19 @@
   <div class="box">
     <ul class="list">
       <li v-for="(item, index) in dataList" :key="index">
-        <a href="" @click="clickIt(item.id)"
+        <a href="#" @click="geiSongListId(item.id)"
           ><img :src="item.coverImgUrl" alt="" width="60px" height="60px"
         /></a>
         <div>
-          <p class="name"><a href="" @click="clickIt(item.id)">{{ item.creator.nickname }}</a> </p>
+          <p class="name">
+            <a href="#" @click="geiSongListId(item.id)">{{
+              item.creator.nickname
+            }}</a>
+          </p>
           <p class="detail">
-            <span><a href="" @click="clickIt(item.id)">{{ item.name }}</a> </span>
+            <span
+              ><a href="#" @click="geiSongListId(item.id)">{{ item.name }}</a>
+            </span>
           </p>
         </div>
       </li>
@@ -41,14 +47,15 @@ export default {
         //有歌单的id
       });
     },
-    clickIt(id) {
-      console.log(id)
+    geiSongListId(id) {  //歌单id
+      console.log(id);
       this.$router.push({
-        path: "/myhearlistdetail",
-        query: {
-          id: id,
-        },
-      });
+          path: "/myhearlistdetail",
+          query: {
+            id: id,
+          },
+        });
+      
     },
   },
 };

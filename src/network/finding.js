@@ -3,6 +3,7 @@ import {request} from './request'
 
 export function denglu(phone,password) { 
     return request({
+        method:'get',
         url: "/login/cellphone",
         params: {
             phone:phone,
@@ -35,7 +36,7 @@ export function hearListDetail(id) {
         url: "/playlist/detail",
         params: {
             id:id,
-        }
+        },
     })
 }
 export function getHotData(id) { 
