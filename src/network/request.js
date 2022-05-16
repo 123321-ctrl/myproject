@@ -3,20 +3,21 @@ import axios from 'axios'
 export function request(config) {
     // 1.创建实例
     const instance = axios.create({
-        baseURL: 'http://localhost:3000',
+        baseURL: 'http://localhost:8080',
         timeout: 2000
     })
 
     //2.axios拦截器
     instance.interceptors.request.use(config => {
-        if (config.url === "/myhearlistdetail") {
+        if (config.url === "/playlist/detail") {
             if (localStorage.getItem('token')) {
                 config.headers = {
-                    Authorization: localStorage.getItem('token')
+                    Authorization: localStorage.getItem('token'),
+                    // CacheControl:no-cache
                 }
             }
         }
-
+        console.log(config)
         return config;
     }, err => {
         console.log(err)

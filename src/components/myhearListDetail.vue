@@ -57,5 +57,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+a{
+  cursor: pointer;
+}
 </style>
